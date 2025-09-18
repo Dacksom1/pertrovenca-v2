@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Petrovenca | Cotizaciones y Carreras Oil & Gas</title>
+    <meta name="description" content="Contacta con Petrovenca para cotizaciones de servicios petroleros, oportunidades de carrera y consultas. Maracaibo, Venezuela. Formulario de contacto y vacantes disponibles.">
+    <meta name="keywords" content="contacto Petrovenca, cotizaciones petroleras, carreras oil & gas, empleos Venezuela, Maracaibo, servicios petroleros">
+    <meta name="author" content="Petrovenca">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/logos/logo-petrovenca.png" alt="Petrovenca Logo">
+                </a>
+                <h2>PETROVENCA</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="equipos.html" class="nav-link">Equipos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="servicios.html" class="nav-link">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contacto.html" class="nav-link active">Contacto</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Contacto</h1>
+                <p>Conecta con nosotros para cotizaciones, oportunidades de carrera y consultas</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="number">15+</span>
+                        <span class="label">Años de Experiencia</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">24/7</span>
+                        <span class="label">Soporte Disponible</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">100%</span>
+                        <span class="label">Compromiso con la Calidad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Overview -->
+    <section class="contact-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Conecta con Nuestro Equipo</h2>
+                <p>Estamos aquí para ayudarte con tus proyectos petroleros. Elige la forma que prefieras para contactarnos.</p>
+            </div>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="method-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Llamada Directa</h3>
+                    <p>Habla directamente con nuestro equipo de expertos</p>
+                    <a href="tel:+582612345678" class="method-link">+58 261-234-5678</a>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="method-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Correo Electrónico</h3>
+                    <p>Envíanos un mensaje detallado sobre tu proyecto</p>
+                    <a href="mailto:info@petrovenca.com" class="method-link">info@petrovenca.com</a>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="method-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visita Nuestras Oficinas</h3>
+                    <p>Conoce nuestras instalaciones en Maracaibo</p>
+                    <a href="#location" class="method-link">Ver Ubicación</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form and Info -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-layout">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <div class="form-header">
+                        <h2>Solicitar Cotización</h2>
+                        <p>Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas</p>
+                    </div>
+                    
+                    <form id="contactForm" class="modern-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nombre Completo *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Empresa</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Servicio de Interés</label>
+                            <select id="service" name="service">
+                                <option value="">Seleccionar servicio</option>
+                                <option value="perforacion">Perforación de Pozos</option>
+                                <option value="mantenimiento">Mantenimiento de Equipos</option>
+                                <option value="consultoria">Consultoría Técnica</option>
+                                <option value="logistica">Logística y Transporte</option>
+                                <option value="seguridad">Seguridad Industrial</option>
+                                <option value="tecnologia">Soluciones Tecnológicas</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje *</label>
+                            <textarea id="message" name="message" placeholder="Describe tu proyecto o consulta..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <div class="info-header">
+                        <h2>Información de Contacto</h2>
+                        <p>Múltiples formas de conectarte con nosotros</p>
+                    </div>
+                    
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Ubicación Principal</h3>
+                                <p>Maracaibo, Estado Zulia<br>Venezuela</p>
+                                <span class="card-subtitle">Centro de operaciones</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Teléfonos</h3>
+                                <p>+58 261-234-5678<br>+58 261-234-5679</p>
+                                <span class="card-subtitle">Lunes a Viernes 8AM-6PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Correos</h3>
+                                <p>info@petrovenca.com<br>ventas@petrovenca.com</p>
+                                <span class="card-subtitle">Respuesta en 24 horas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Emergencias</h3>
+                                <p>+58 261-234-5680<br>Servicio 24/7</p>
+                                <span class="card-subtitle">Soporte técnico</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section class="careers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Únete a Nuestro Equipo</h2>
+                <p>Oportunidades de carrera en la industria petrolera venezolana</p>
+            </div>
+            
+            <div class="careers-grid">
+                <div class="career-card">
+                    <div class="career-header">
+                        <div class="career-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="career-meta">
+                            <span class="career-type">Tiempo Completo</span>
+                            <span class="career-location">Maracaibo, Zulia</span>
+                        </div>
+                    </div>
+                    <h3>Analista de Relaciones Laborales</h3>
+                    <p>Gestiona las relaciones laborales y el desarrollo del talento humano en el sector petrolero.</p>
+                    <div class="career-skills">
+                        <span class="skill-tag">Recursos Humanos</span>
+                        <span class="skill-tag">Sector Petrolero</span>
+                        <span class="skill-tag">Cumplimiento Normativo</span>
+                    </div>
+                    <a href="#apply" class="career-apply">Aplicar Ahora</a>
+                </div>
+                
+                <div class="career-card">
+                    <div class="career-header">
+                        <div class="career-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="career-meta">
+                            <span class="career-type">Tiempo Completo</span>
+                            <span class="career-location">Maracaibo, Zulia</span>
+                        </div>
+                    </div>
+                    <h3>Ingeniero de Perforación</h3>
+                    <p>Especialista en operaciones de perforación con experiencia en diseño de pozos y control de presión.</p>
+                    <div class="career-skills">
+                        <span class="skill-tag">Ingeniería</span>
+                        <span class="skill-tag">Perforación</span>
+                        <span class="skill-tag">Control de Presión</span>
+                    </div>
+                    <a href="#apply" class="career-apply">Aplicar Ahora</a>
+                </div>
+                
+                <div class="career-card">
+                    <div class="career-header">
+                        <div class="career-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="career-meta">
+                            <span class="career-type">Tiempo Completo</span>
+                            <span class="career-location">Maracaibo, Zulia</span>
+                        </div>
+                    </div>
+                    <h3>Técnico en Mantenimiento</h3>
+                    <p>Especialista en mantenimiento de equipos petroleros con certificaciones técnicas.</p>
+                    <div class="career-skills">
+                        <span class="skill-tag">Mantenimiento</span>
+                        <span class="skill-tag">Equipos Petroleros</span>
+                        <span class="skill-tag">Certificaciones</span>
+                    </div>
+                    <a href="#apply" class="career-apply">Aplicar Ahora</a>
+                </div>
+                
+                <div class="career-card">
+                    <div class="career-header">
+                        <div class="career-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="career-meta">
+                            <span class="career-type">Tiempo Completo</span>
+                            <span class="career-location">Maracaibo, Zulia</span>
+                        </div>
+                    </div>
+                    <h3>Especialista en Seguridad Industrial</h3>
+                    <p>Profesional en implementación de sistemas HSE y gestión de riesgos operacionales.</p>
+                    <div class="career-skills">
+                        <span class="skill-tag">HSE</span>
+                        <span class="skill-tag">Gestión de Riesgos</span>
+                        <span class="skill-tag">Capacitación</span>
+                    </div>
+                    <a href="#apply" class="career-apply">Aplicar Ahora</a>
+                </div>
+            </div>
+            
+            <div class="careers-cta">
+                <div class="cta-content">
+                    <h3>¿No encuentras la posición ideal?</h3>
+                    <p>Envíanos tu CV y te contactaremos cuando tengamos una oportunidad que coincida con tu perfil</p>
+                    <a href="#apply" class="btn btn-secondary">Enviar CV</a>
+                </div>
+                <div class="linkedin-section">
+                    <h4>Conecta con Nosotros</h4>
+                    <p>Síguenos en LinkedIn para las últimas oportunidades</p>
+                    <a href="https://linkedin.com/company/petrovenca" target="_blank" class="linkedin-btn">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Formulario de Aplicación</h2>
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label for="appName">Nombre Completo *</label>
+                    <input type="text" id="appName" name="appName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="appEmail">Correo Electrónico *</label>
+                    <input type="email" id="appEmail" name="appEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="appPhone">Teléfono *</label>
+                    <input type="tel" id="appPhone" name="appPhone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="appPosition">Posición de Interés *</label>
+                    <input type="text" id="appPosition" name="appPosition" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="appExperience">Años de Experiencia</label>
+                    <select id="appExperience" name="appExperience">
+                        <option value="">Seleccionar</option>
+                        <option value="0-2">0-2 años</option>
+                        <option value="3-5">3-5 años</option>
+                        <option value="6-10">6-10 años</option>
+                        <option value="10+">Más de 10 años</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="appResume">Adjuntar CV (PDF)</label>
+                    <input type="file" id="appResume" name="appResume" accept=".pdf">
+                </div>
+                
+                <div class="form-group">
+                    <label for="appCoverLetter">Carta de Presentación</label>
+                    <textarea id="appCoverLetter" name="appCoverLetter" placeholder="Cuéntanos por qué quieres trabajar con nosotros..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Enviar Aplicación</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestra Ubicación</h2>
+                <p>Centro de operaciones en el corazón de la industria petrolera venezolana</p>
+            </div>
+            
+            <div class="map-wrapper">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125281.123456789!2d-71.6124!3d10.6666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8998c8c8c8c8c8%3A0x8e8998c8c8c8c8c8!2sMaracaibo%2C%20Zulia%2C%20Venezuela!5e0!3m2!1sen!2sve!4v1234567890123!5m2!1sen!2sve" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="map-info">
+                    <div class="info-content">
+                        <h3><i class="fas fa-map-marker-alt"></i> Maracaibo, Estado Zulia</h3>
+                        <p>Centro de operaciones de Petrovenca</p>
+                        <div class="map-details">
+                            <div class="detail-item">
+                                <i class="fas fa-building"></i>
+                                <span>Oficinas Principales</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-industry"></i>
+                                <span>Patio Operacional</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-warehouse"></i>
+                                <span>Almacén de Equipos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para trabajar con nosotros?</h2>
+                <p>Explora nuestras oportunidades de carrera o solicita una cotización para tu proyecto</p>
+                <div class="cta-buttons">
+                    <a href="#careers" class="btn btn-primary">Ver Vacantes</a>
+                    <a href="#contact" class="btn btn-secondary">Solicitar Cotización</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PETROVENCA</h3>
+                    <p>Líderes en servicios petroleros con excelencia, seguridad e innovación en Venezuela.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="equipos.html">Equipos</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Maracaibo, Venezuela</p>
+                    <p>Email: info@petrovenca.com</p>
+                    <p>Tel: +58 261-XXX-XXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Petrovenca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Application Modal functionality
+        const modal = document.getElementById('applicationModal');
+        const jobApplyButtons = document.querySelectorAll('.job-apply');
+        const closeModal = document.querySelector('.close');
+        const appPositionInput = document.getElementById('appPosition');
+
+        jobApplyButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const jobTitle = button.closest('.job-listing').querySelector('.job-title').textContent;
+                appPositionInput.value = jobTitle;
+                modal.style.display = 'block';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Form submissions
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+        });
+
+        document.getElementById('applicationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Aplicación enviada! Revisaremos tu perfil y te contactaremos pronto.');
+            modal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
