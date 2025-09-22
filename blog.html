@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Petrovenca</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/logos/logo-petrovenca.png" alt="Petrovenca Logo">
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="servicios.html" class="nav-link">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="equipos.html" class="nav-link">Equipos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Blog Petrovenca</h1>
+                <p>Videos educativos, campañas de seguridad y eventos de la industria petrolera</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <!-- Video Categories -->
+            <div class="video-categories">
+                <!-- Seguridad Category -->
+                <div class="category-section">
+                    <div class="category-header">
+                        <h2><i class="fas fa-shield-alt"></i> Seguridad Industrial</h2>
+                        <p>Campañas y protocolos de seguridad para proteger vidas</p>
+                    </div>
+                    <div class="video-grid">
+                        <div class="video-card" data-video="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/seguridad/abrochate-a-la-vida.mp4">
+                            <div class="video-thumbnail">
+                                <video preload="metadata" muted>
+                                    <source src="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/seguridad/abrochate-a-la-vida.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">2:30</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Abrochate a la Vida</h3>
+                                <p>Campaña de seguridad sobre el uso correcto del cinturón de seguridad</p>
+                                <div class="video-meta">
+                                    <span class="views"><i class="fas fa-eye"></i> 1.2K vistas</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> Hace 2 semanas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/seguridad/abrochate-a-la-vida-2.mp4">
+                            <div class="video-thumbnail">
+                                <video preload="metadata" muted>
+                                    <source src="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/seguridad/abrochate-a-la-vida-2.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">1:45</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Abrochate a la Vida - Parte 2</h3>
+                                <p>Continuación de la campaña de seguridad vial</p>
+                                <div class="video-meta">
+                                    <span class="views"><i class="fas fa-eye"></i> 980 vistas</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> Hace 1 semana</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/seguridad/parada-abrochate-vida.mp4">
+                            <div class="video-thumbnail">
+                                <video preload="metadata" muted>
+                                    <source src="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/seguridad/parada-abrochate-vida.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">3:15</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Parada: Abrochate a la Vida</h3>
+                                <p>Parada de seguridad sobre el uso del cinturón de seguridad</p>
+                                <div class="video-meta">
+                                    <span class="views"><i class="fas fa-eye"></i> 1.5K vistas</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> Hace 3 días</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capacitación Category -->
+                <div class="category-section">
+                    <div class="category-header">
+                        <h2><i class="fas fa-graduation-cap"></i> Capacitación</h2>
+                        <p>Videos educativos para el aprendizaje continuo</p>
+                    </div>
+                    <div class="video-grid">
+                        <div class="video-card" data-video="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/capacitacion/aprendiendo-incidentes-1.mp4">
+                            <div class="video-thumbnail">
+                                <video preload="metadata" muted>
+                                    <source src="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/capacitacion/aprendiendo-incidentes-1.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">4:20</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Aprendiendo de Incidentes - Parte 1</h3>
+                                <p>Análisis de incidentes para mejorar la seguridad operacional</p>
+                                <div class="video-meta">
+                                    <span class="views"><i class="fas fa-eye"></i> 2.1K vistas</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> Hace 5 días</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/capacitacion/aprendiendo-incidentes-2.mp4">
+                            <div class="video-thumbnail">
+                                <video preload="metadata" muted>
+                                    <source src="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/capacitacion/aprendiendo-incidentes-2.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">3:50</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Aprendiendo de Incidentes - Parte 2</h3>
+                                <p>Continuación del análisis de incidentes y mejores prácticas</p>
+                                <div class="video-meta">
+                                    <span class="views"><i class="fas fa-eye"></i> 1.8K vistas</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> Hace 4 días</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicular Category -->
+                <div class="category-section">
+                    <div class="category-header">
+                        <h2><i class="fas fa-truck"></i> Seguridad Vehicular</h2>
+                        <p>Campañas de seguridad para operaciones vehiculares</p>
+                    </div>
+                    <div class="video-grid">
+                        <div class="video-card" data-video="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/vehicular/campana-vehicular.mp4">
+                            <div class="video-thumbnail">
+                                <video preload="metadata" muted>
+                                    <source src="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/vehicular/campana-vehicular.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">2:45</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Campaña Vehicular</h3>
+                                <p>Protocolos de seguridad para operaciones con vehículos</p>
+                                <div class="video-meta">
+                                    <span class="views"><i class="fas fa-eye"></i> 1.6K vistas</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> Hace 1 semana</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" data-video="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/vehicular/parada-vehicular-2.mp4">
+                            <div class="video-thumbnail">
+                                <video preload="metadata" muted>
+                                    <source src="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/vehicular/parada-vehicular-2.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">3:10</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Parada Vehicular - Segunda Edición</h3>
+                                <p>Parada de seguridad enfocada en operaciones vehiculares</p>
+                                <div class="video-meta">
+                                    <span class="views"><i class="fas fa-eye"></i> 1.3K vistas</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> Hace 2 días</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eventos Category -->
+                <div class="category-section">
+                    <div class="category-header">
+                        <h2><i class="fas fa-calendar-star"></i> Eventos</h2>
+                        <p>Eventos especiales y actividades de la empresa</p>
+                    </div>
+                    <div class="video-grid">
+                        <div class="video-card" data-video="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/eventos/fire-show-2025.mp4">
+                            <div class="video-thumbnail">
+                                <video preload="metadata" muted>
+                                    <source src="https://pimdacnznqksduifcibb.supabase.co/storage/v1/object/public/petrovenca-media/videos/eventos/fire-show-2025.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">5:30</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Fire Show 2025</h3>
+                                <p>Demostración de equipos contra incendios y protocolos de emergencia</p>
+                                <div class="video-meta">
+                                    <span class="views"><i class="fas fa-eye"></i> 3.2K vistas</span>
+                                    <span class="date"><i class="fas fa-calendar"></i> Hace 1 día</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Título del Video</h3>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <video id="modalVideo" controls autoplay controlsList="nodownload noremoteplayback" disablePictureInPicture>
+                <source src="" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+            <div class="modal-info">
+                <p id="modalDescription">Descripción del video</p>
+                <div class="modal-meta">
+                    <span id="modalViews"><i class="fas fa-eye"></i> 0 vistas</span>
+                    <span id="modalDate"><i class="fas fa-calendar"></i> Fecha</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/logos/logo-petrovenca.png" alt="Petrovenca Logo">
+                    </div>
+                    <p>Líderes en servicios petroleros con más de 15 años de experiencia en la industria venezolana.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="servicios.html">Servicios Petroleros</a></li>
+                        <li><a href="equipos.html">Equipos Especializados</a></li>
+                        <li><a href="contacto.html">Consultoría</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +58 261-234-5678</li>
+                        <li><i class="fas fa-envelope"></i> info@petrovenca.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Maracaibo, Estado Zulia</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Petrovenca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Blog specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Video modal functionality
+            const videoModal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalViews = document.getElementById('modalViews');
+            const modalDate = document.getElementById('modalDate');
+            const closeModal = document.getElementById('closeModal');
+            const videoCards = document.querySelectorAll('.video-card');
+
+            // Open modal when video card is clicked
+            videoCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const videoSrc = this.getAttribute('data-video');
+                    const title = this.querySelector('h3').textContent;
+                    const description = this.querySelector('.video-info p').textContent;
+                    const views = this.querySelector('.views').textContent;
+                    const date = this.querySelector('.date').textContent;
+
+                    modalVideo.src = videoSrc;
+                    modalTitle.textContent = title;
+                    modalDescription.textContent = description;
+                    modalViews.textContent = views;
+                    modalDate.textContent = date;
+
+                    videoModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Auto play the video with audio
+                    modalVideo.muted = false;
+                    modalVideo.play().catch(e => {
+                        console.log('Autoplay with audio prevented, trying muted:', e);
+                        // If autoplay with audio fails, try muted
+                        modalVideo.muted = true;
+                        modalVideo.play().then(() => {
+                            // Unmute after a short delay
+                            setTimeout(() => {
+                                modalVideo.muted = false;
+                            }, 1000);
+                        }).catch(err => {
+                            console.log('Autoplay completely prevented:', err);
+                        });
+                    });
+                });
+            });
+
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                videoModal.style.display = 'none';
+                modalVideo.pause();
+                modalVideo.currentTime = 0;
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close modal when clicking outside
+            videoModal.addEventListener('click', function(e) {
+                if (e.target === videoModal) {
+                    videoModal.style.display = 'none';
+                    modalVideo.pause();
+                    modalVideo.currentTime = 0;
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && videoModal.style.display === 'flex') {
+                    videoModal.style.display = 'none';
+                    modalVideo.pause();
+                    modalVideo.currentTime = 0;
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Generate video thumbnails
+            const videoElements = document.querySelectorAll('.video-thumbnail video');
+            videoElements.forEach(video => {
+                video.addEventListener('loadedmetadata', function() {
+                    // Set current time to 1 second to get a good thumbnail
+                    this.currentTime = 1;
+                });
+                
+                video.addEventListener('seeked', function() {
+                    // Thumbnail is now set
+                });
+            });
+
+            // Disable right-click context menu on modal video
+            modalVideo.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Disable drag and drop on modal video
+            modalVideo.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Disable text selection on modal video
+            modalVideo.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

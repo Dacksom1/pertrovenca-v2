@@ -1,17 +1,45 @@
 // Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing mobile menu...');
+    
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    console.log('Hamburger found:', hamburger);
+    console.log('Nav menu found:', navMenu);
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Hamburger clicked!');
+            
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking on nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    } else {
+        console.error('Hamburger or nav menu not found');
+    }
 });
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
@@ -223,7 +251,7 @@ document.querySelectorAll('img').forEach(img => {
 });
 
 // Animated Counter for Statistics
-function animateCounter(element, target, duration = 2000) {
+function animateCounter(element, target, duration = 2000, suffix = '') {
     const start = 0;
     const increment = target / (duration / 16);
     let current = start;
@@ -235,7 +263,10 @@ function animateCounter(element, target, duration = 2000) {
             clearInterval(timer);
         }
         
-        if (target >= 100) {
+        // Use provided suffix or default logic
+        if (suffix) {
+            element.textContent = Math.floor(current) + suffix;
+        } else if (target >= 100) {
             element.textContent = Math.floor(current) + '%';
         } else {
             element.textContent = Math.floor(current) + '+';
@@ -284,6 +315,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsSection = document.querySelector('.experience-stats');
     if (statsSection) {
         statsObserver.observe(statsSection);
+    }
+    
+    // Observe hero stats section
+    const heroStatsSection = document.querySelector('.hero-stats');
+    if (heroStatsSection) {
+        // Initialize counters to 0
+        const statNumbers = heroStatsSection.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            stat.textContent = '0';
+        });
+        
+        const heroStatsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    
+                    statNumbers.forEach((stat, index) => {
+                        setTimeout(() => {
+                            const target = parseInt(stat.getAttribute('data-target'));
+                            if (target === 24) {
+                                // Special case for 24/7
+                                stat.textContent = '24/7';
+                            } else if (target === 100) {
+                                animateCounter(stat, target, 2000, '%');
+                            } else {
+                                animateCounter(stat, target, 2000, '+');
+                            }
+                        }, index * 200); // 200ms delay between each stat
+                    });
+                    
+                    heroStatsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        heroStatsObserver.observe(heroStatsSection);
     }
     
     // Fallback: Trigger animation after 1 second if not triggered by scroll
@@ -486,16 +553,16 @@ const patioStatsObserver = new IntersectionObserver((entries) => {
             statNumbers.forEach((stat, index) => {
                 // Add delay for each stat
                 setTimeout(() => {
-                    const text = stat.textContent.trim();
-                    if (text.includes('50,000+')) {
-                        animatePatioCounter(stat, 50000, '+', 'm²');
-                    } else if (text.includes('24/7')) {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    if (target === 50000) {
+                        animatePatioCounter(stat, target, '+', 'm²');
+                    } else if (target === 24) {
                         stat.textContent = '24/7';
                         stat.style.opacity = '1';
-                    } else if (text.includes('100%')) {
-                        animatePatioCounter(stat, 100, '%', '');
-                    } else if (text.includes('15+')) {
-                        animatePatioCounter(stat, 15, '+', '');
+                    } else if (target === 100) {
+                        animatePatioCounter(stat, target, '%', '');
+                    } else if (target === 15) {
+                        animatePatioCounter(stat, target, '+', '');
                     }
                 }, index * 200); // 200ms delay between each stat
             });
@@ -532,6 +599,12 @@ function animatePatioCounter(element, target, suffix, unit) {
 document.addEventListener('DOMContentLoaded', () => {
     const patioStatsSection = document.querySelector('.patio-stats');
     if (patioStatsSection) {
+        // Initialize counters to 0
+        const statNumbers = patioStatsSection.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            stat.textContent = '0';
+        });
+        
         patioStatsObserver.observe(patioStatsSection);
     }
     
@@ -541,18 +614,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (patioStatsSection && !patioStatsSection.classList.contains('animated')) {
             const statNumbers = patioStatsSection.querySelectorAll('.stat-number');
             
+            // Initialize counters to 0 if not already done
+            statNumbers.forEach(stat => {
+                if (stat.textContent !== '0') {
+                    stat.textContent = '0';
+                }
+            });
+            
             statNumbers.forEach((stat, index) => {
                 setTimeout(() => {
-                    const text = stat.textContent.trim();
-                    if (text.includes('50,000+')) {
-                        animatePatioCounter(stat, 50000, '+', 'm²');
-                    } else if (text.includes('24/7')) {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    if (target === 50000) {
+                        animatePatioCounter(stat, target, '+', 'm²');
+                    } else if (target === 24) {
                         stat.textContent = '24/7';
                         stat.style.opacity = '1';
-                    } else if (text.includes('100%')) {
-                        animatePatioCounter(stat, 100, '%', '');
-                    } else if (text.includes('15+')) {
-                        animatePatioCounter(stat, 15, '+', '');
+                    } else if (target === 100) {
+                        animatePatioCounter(stat, target, '%', '');
+                    } else if (target === 15) {
+                        animatePatioCounter(stat, target, '+', '');
                     }
                 }, index * 200);
             });
@@ -562,38 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2000);
 });
 
-// Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-
-        // Close menu when clicking on nav links
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            }
-        });
-    }
-});
+// Mobile Menu Toggle - Removed duplicate code
 
 // Console welcome message
 console.log('%c🚀 Petrovenca Website', 'color: #d31f45; font-size: 20px; font-weight: bold;');
