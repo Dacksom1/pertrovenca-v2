@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>Contacto - Petrovenca | Cotizaciones y Carreras Oil & Gas</title>
     <meta name="description" content="Contacta con Petrovenca para cotizaciones de servicios petroleros, oportunidades de carrera y consultas. Maracaibo, Venezuela. Formulario de contacto y vacantes disponibles.">
     <meta name="keywords" content="contacto Petrovenca, cotizaciones petroleras, carreras oil & gas, empleos Venezuela, Maracaibo, servicios petroleros">
@@ -11,6 +14,194 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Clean Mobile Menu Style -->
+    <style>
+        /* Clean mobile menu like the reference image */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed !important;
+                left: 0 !important;
+                top: 70px !important;
+                width: 100% !important;
+                background: rgba(255, 255, 255, 0.95) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                padding: 0 !important;
+                z-index: 1000 !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                transform: translateY(-20px) !important;
+                transition: all 0.3s ease !important;
+                border-radius: 0 0 20px 20px !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+                border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+                height: auto !important;
+                max-height: none !important;
+            }
+            
+            .nav-menu.active {
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: translateY(0) !important;
+            }
+            
+            .nav-item {
+                margin: 0 !important;
+                opacity: 0 !important;
+                transform: translateX(-20px) !important;
+                transition: all 0.3s ease !important;
+                transition-delay: 0s !important;
+            }
+            
+            .nav-menu.active .nav-item {
+                opacity: 1 !important;
+                transform: translateX(0) !important;
+            }
+            
+            .nav-menu.active .nav-item:nth-child(1) { transition-delay: 0.1s !important; }
+            .nav-menu.active .nav-item:nth-child(2) { transition-delay: 0.15s !important; }
+            .nav-menu.active .nav-item:nth-child(3) { transition-delay: 0.2s !important; }
+            .nav-menu.active .nav-item:nth-child(4) { transition-delay: 0.25s !important; }
+            .nav-menu.active .nav-item:nth-child(5) { transition-delay: 0.3s !important; }
+            
+            .nav-link {
+                font-size: 1.1rem !important;
+                font-weight: 500 !important;
+                padding: 1rem 1.5rem !important;
+                color: #333 !important;
+                text-decoration: none !important;
+                display: block !important;
+                width: 100% !important;
+                text-align: left !important;
+                transition: all 0.2s ease !important;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+            }
+            
+            .nav-link:hover {
+                background: rgba(0, 0, 0, 0.05) !important;
+                color: #d31f45 !important;
+            }
+            
+            /* Action buttons container - removed extra spacing */
+            
+            /* Add action buttons */
+            .nav-menu .nav-item:last-child {
+                border-bottom: none !important;
+            }
+            
+            /* Mobile Action Buttons */
+            .mobile-action-buttons {
+                display: none !important;
+                padding: 1rem 1.5rem 1.5rem 1.5rem !important;
+                background: transparent !important;
+                gap: 0.75rem !important;
+                flex-direction: column !important;
+            }
+        }
+        
+        /* Hide mobile action buttons on desktop */
+        @media (min-width: 769px) {
+            .mobile-action-buttons {
+                display: none !important;
+            }
+            
+            .hamburger {
+                display: none !important;
+            }
+            
+            .nav-menu.active .mobile-action-buttons {
+                display: flex !important;
+                animation: fadeInUp 0.4s ease 0.4s both !important;
+            }
+            
+            .action-btn {
+                display: block !important;
+                width: 100% !important;
+                padding: 0.75rem 1.5rem !important;
+                border-radius: 25px !important;
+                font-weight: 600 !important;
+                font-size: 1rem !important;
+                text-align: center !important;
+                text-decoration: none !important;
+                transition: all 0.3s ease !important;
+                border: none !important;
+                cursor: pointer !important;
+            }
+            
+            .primary-btn {
+                background: #d31f45 !important;
+                color: white !important;
+            }
+            
+            .primary-btn:hover {
+                background: #b01a3a !important;
+                transform: translateY(-1px) !important;
+                box-shadow: 0 4px 12px rgba(211, 31, 69, 0.3) !important;
+            }
+            
+            .secondary-btn {
+                background: #333 !important;
+                color: white !important;
+            }
+            
+            .secondary-btn:hover {
+                background: #555 !important;
+                transform: translateY(-1px) !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+            }
+            
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .hamburger {
+                display: flex !important;
+                flex-direction: column !important;
+                cursor: pointer !important;
+                padding: 0.5rem !important;
+                z-index: 1001 !important;
+                -webkit-tap-highlight-color: transparent !important;
+                -webkit-touch-callout: none !important;
+                -webkit-user-select: none !important;
+                user-select: none !important;
+            }
+            
+            .hamburger .bar {
+                width: 24px !important;
+                height: 2px !important;
+                background: #333 !important;
+                margin: 3px 0 !important;
+                border-radius: 1px !important;
+                transition: all 0.3s ease !important;
+                transform-origin: center !important;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px) !important;
+                background: #333 !important;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0 !important;
+                transform: scaleX(0) !important;
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px) !important;
+                background: #333 !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -20,7 +211,7 @@
                 <a href="index.html">
                     <img src="assets/logos/logo-petrovenca.png" alt="Petrovenca Logo">
                 </a>
-                <h2>PETROVENCA</h2>
+                <img src="assets/logos/petrovenca logo.png" alt="Petrovenca Text Logo" class="logo-text">
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
@@ -39,6 +230,12 @@
                     <a href="contacto.html" class="nav-link active">Contacto</a>
                 </li>
             </ul>
+            
+            <!-- Action Buttons for Mobile -->
+            <div class="mobile-action-buttons">
+                <a href="contacto.html" class="action-btn primary-btn">Contactar</a>
+                <a href="servicios.html" class="action-btn secondary-btn">Conocer más servicios</a>
+            </div>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -470,26 +667,69 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- iOS specific script -->
     <script>
-        // Test script for mobile menu
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Test script loaded');
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
+        // iOS Safari detection and fixes
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            console.log('iOS device detected');
             
-            console.log('Hamburger element:', hamburger);
-            console.log('Nav menu element:', navMenu);
-            
-            if (hamburger) {
-                hamburger.addEventListener('click', function() {
-                    console.log('Hamburger clicked in test script!');
-                    if (navMenu) {
-                        navMenu.classList.toggle('active');
-                        hamburger.classList.toggle('active');
-                    }
-                });
-            }
-        });
+            // Force hardware acceleration
+            document.addEventListener('DOMContentLoaded', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
+                
+                if (hamburger && navMenu) {
+                    // Add iOS specific styles
+                    hamburger.style.webkitTransform = 'translateZ(0)';
+                    hamburger.style.transform = 'translateZ(0)';
+                    navMenu.style.webkitTransform = 'translateZ(0)';
+                    navMenu.style.transform = 'translateZ(0)';
+                    
+                    // Modern touch handling with CSS animations
+                    hamburger.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Modern: Hamburger touched!');
+                        
+                        // Toggle menu with modern animations
+                        if (navMenu.classList.contains('active')) {
+                            // Close menu
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                            document.body.style.overflow = 'auto';
+                        } else {
+                            // Open menu
+                            hamburger.classList.add('active');
+                            navMenu.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }, { passive: false });
+                    
+                    // Close menu when clicking on nav links (iOS)
+                    const navLinks = document.querySelectorAll('.nav-link');
+                    navLinks.forEach(link => {
+                        link.addEventListener('touchstart', function() {
+                            console.log('Modern: Nav link touched, closing menu');
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                            document.body.style.overflow = 'auto';
+                        }, { passive: true });
+                    });
+                    
+                    // Close menu when clicking on action buttons
+                    const actionButtons = document.querySelectorAll('.action-btn');
+                    actionButtons.forEach(button => {
+                        button.addEventListener('touchstart', function() {
+                            console.log('Modern: Action button touched, closing menu');
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                            document.body.style.overflow = 'auto';
+                        }, { passive: true });
+                    });
+                }
+            });
+        }
     </script>
     <script>
         // Application Modal functionality
