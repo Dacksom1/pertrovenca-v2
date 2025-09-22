@@ -1461,7 +1461,7 @@ h1.visible, h2.visible, h3.visible, h4.visible, h5.visible, h6.visible {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 1rem;
     z-index: 1001;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -1469,6 +1469,20 @@ h1.visible, h2.visible, h3.visible, h4.visible, h5.visible, h6.visible {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    /* Android specific fixes */
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Make it easier to tap on Android */
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Force hide hamburger and mobile buttons on desktop - Maximum specificity */
@@ -1498,6 +1512,11 @@ h1.visible, h2.visible, h3.visible, h4.visible, h5.visible, h6.visible {
     transition: 0.3s;
     border-radius: 2px;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .hamburger.active .bar:nth-child(1) {

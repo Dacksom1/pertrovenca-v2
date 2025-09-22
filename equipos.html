@@ -236,7 +236,7 @@
                 <a href="contacto.html" class="action-btn primary-btn">Contactar</a>
                 <a href="servicios.html" class="action-btn secondary-btn">Ver servicios</a>
             </div>
-            <div class="hamburger">
+            <div class="hamburger" onclick="toggleMobileMenu()">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -553,68 +553,69 @@
 
     <script src="script.js"></script>
     
-    <!-- iOS specific script -->
+    <!-- Universal mobile menu script -->
     <script>
-        // iOS Safari detection and fixes
-        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-            console.log('iOS device detected');
+        // Universal mobile menu handler
+        function handleMobileMenu() {
+            console.log('Mobile menu handler called');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
             
-            // Force hardware acceleration
-            document.addEventListener('DOMContentLoaded', function() {
-                const hamburger = document.querySelector('.hamburger');
-                const navMenu = document.querySelector('.nav-menu');
+            if (hamburger && navMenu) {
+                const isActive = navMenu.classList.contains('active');
                 
-                if (hamburger && navMenu) {
-                    // Add iOS specific styles
-                    hamburger.style.webkitTransform = 'translateZ(0)';
-                    hamburger.style.transform = 'translateZ(0)';
-                    navMenu.style.webkitTransform = 'translateZ(0)';
-                    navMenu.style.transform = 'translateZ(0)';
-                    
-                    // Modern touch handling with CSS animations
-                    hamburger.addEventListener('touchstart', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        console.log('Modern: Hamburger touched!');
-                        
-                        // Toggle menu with modern animations
-                        if (navMenu.classList.contains('active')) {
-                            // Close menu
-                            hamburger.classList.remove('active');
-                            navMenu.classList.remove('active');
-                            document.body.style.overflow = 'auto';
-                        } else {
-                            // Open menu
-                            hamburger.classList.add('active');
-                            navMenu.classList.add('active');
-                            document.body.style.overflow = 'hidden';
-                        }
-                    }, { passive: false });
-                    
-                    // Close menu when clicking on nav links (iOS)
-                    const navLinks = document.querySelectorAll('.nav-link');
-                    navLinks.forEach(link => {
-                        link.addEventListener('touchstart', function() {
-                            console.log('Modern: Nav link touched, closing menu');
-                            hamburger.classList.remove('active');
-                            navMenu.classList.remove('active');
-                            document.body.style.overflow = 'auto';
-                        }, { passive: true });
-                    });
-                    
-                    // Close menu when clicking on action buttons
-                    const actionButtons = document.querySelectorAll('.action-btn');
-                    actionButtons.forEach(button => {
-                        button.addEventListener('touchstart', function() {
-                            console.log('Modern: Action button touched, closing menu');
-                            hamburger.classList.remove('active');
-                            navMenu.classList.remove('active');
-                            document.body.style.overflow = 'auto';
-                        }, { passive: true });
-                    });
+                if (isActive) {
+                    // Close menu
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    console.log('Menu closed');
+                } else {
+                    // Open menu
+                    hamburger.classList.add('active');
+                    navMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    console.log('Menu opened');
                 }
-            });
+            }
         }
+        
+        // Set up event listeners when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                console.log('Setting up mobile menu');
+                
+                // Multiple event listeners for maximum compatibility
+                hamburger.addEventListener('click', handleMobileMenu);
+                hamburger.addEventListener('touchend', handleMobileMenu);
+                hamburger.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                }, { passive: false });
+                
+                // Close menu when clicking nav links
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+                
+                // Close menu when clicking action buttons
+                const actionButtons = document.querySelectorAll('.action-btn');
+                actionButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>

@@ -2,12 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing mobile menu...');
     
-    // Only initialize mobile menu on mobile devices
-    if (window.innerWidth > 768) {
-        console.log('Desktop detected, skipping mobile menu initialization');
-        return;
-    }
-    
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -16,28 +10,24 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Nav menu found:', navMenu);
 
     if (hamburger && navMenu) {
-        // Toggle menu function
+        // Toggle menu function - Simplified and robust
         function toggleMenu() {
             console.log('Toggle menu called');
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
             
-            // Force visibility for mobile devices
-            if (navMenu.classList.contains('active')) {
-                navMenu.style.display = 'flex';
-                navMenu.style.visibility = 'visible';
-                navMenu.style.opacity = '1';
-                navMenu.style.left = '0';
-                document.body.style.overflow = 'hidden';
-                console.log('Menu opened');
-            } else {
-                navMenu.style.display = 'none';
-                navMenu.style.visibility = 'hidden';
-                navMenu.style.opacity = '0';
-                navMenu.style.left = '-100%';
+            const isActive = navMenu.classList.contains('active');
+            
+            if (isActive) {
+                // Close menu
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
                 document.body.style.overflow = 'auto';
                 console.log('Menu closed');
+            } else {
+                // Open menu
+                hamburger.classList.add('active');
+                navMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Menu opened');
             }
         }
 
@@ -56,35 +46,19 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         }
 
-        // Hamburger click event
-        hamburger.addEventListener('click', function(e) {
+        // Simple and universal event handler
+        function handleHamburgerClick(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Hamburger clicked!');
+            console.log('Hamburger interaction detected!');
             toggleMenu();
-        });
+        }
 
-        // Touch event for mobile devices (iOS specific)
+        // Multiple event listeners for maximum compatibility
+        hamburger.addEventListener('click', handleHamburgerClick);
+        hamburger.addEventListener('touchend', handleHamburgerClick);
         hamburger.addEventListener('touchstart', function(e) {
             e.preventDefault();
-            e.stopPropagation();
-            console.log('Hamburger touched!');
-            toggleMenu();
-        });
-
-        // iOS specific touch handling
-        hamburger.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Hamburger touch end!');
-        });
-
-        // Force click event for iOS
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Hamburger clicked (iOS)!');
-            toggleMenu();
         }, { passive: false });
 
         // Close menu when clicking on nav links
@@ -143,16 +117,92 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Forced hamburger to hide on desktop');
         }
     }
+    
+    // Force hide hamburger on desktop
+    if (window.innerWidth > 768) {
+        const hamburger = document.querySelector('.hamburger');
+        if (hamburger) {
+            hamburger.style.display = 'none';
+            hamburger.style.visibility = 'hidden';
+            hamburger.style.opacity = '0';
+            console.log('Forced hamburger to hide on desktop');
+        }
+    }
 });
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
     } else {
-        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
     }
+});
+
+// Global function for onclick handler - Android compatibility
+function toggleMobileMenu() {
+    console.log('Global toggle function called');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        const isActive = navMenu.classList.contains('active');
+        
+        if (isActive) {
+            // Close menu
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            console.log('Menu closed via global function');
+        } else {
+            // Open menu
+            hamburger.classList.add('active');
+            navMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            console.log('Menu opened via global function');
+        }
+    }
+}
+
+// Alternative Android fix - Direct DOM manipulation
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a bit for everything to load
+    setTimeout(function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger && navMenu) {
+            console.log('Setting up direct Android fix');
+            
+            // Remove all existing event listeners by cloning the element
+            const newHamburger = hamburger.cloneNode(true);
+            hamburger.parentNode.replaceChild(newHamburger, hamburger);
+            
+            // Add simple click handler
+            newHamburger.onclick = function() {
+                console.log('Direct onclick triggered');
+                const isActive = navMenu.classList.contains('active');
+                
+                if (isActive) {
+                    navMenu.classList.remove('active');
+                    newHamburger.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                } else {
+                    navMenu.classList.add('active');
+                    newHamburger.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+            
+            // Also add touch events
+            newHamburger.ontouchend = function(e) {
+                e.preventDefault();
+                console.log('Direct ontouchend triggered');
+                newHamburger.onclick();
+            };
+        }
+    }, 1000);
 });
 
 // Smooth scrolling for anchor links
