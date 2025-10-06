@@ -225,13 +225,10 @@
                     <a href="index.html" class="nav-link active">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a href="equipos.html" class="nav-link">Equipos</a>
-                </li>
-                <li class="nav-item">
                     <a href="servicios.html" class="nav-link">Servicios</a>
                 </li>
                 <li class="nav-item">
-                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="blog.html" class="nav-link">En Línea</a>
                 </li>
                 <li class="nav-item">
                     <a href="contacto.html" class="nav-link">Contacto</a>
@@ -255,7 +252,7 @@
     <section class="hero">
         <div class="video-container">
             <video autoplay muted loop playsinline>
-                <source src="assets/videos/petrovenca main.mp4" type="video/mp4">
+                <source src="https://cdn.petrovenca.com/Petrovencavid1.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
         </div>
@@ -275,144 +272,81 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <div class="section-header">
-                <h2>Quiénes Somos</h2>
-                <p>PETROVENCA es más que una empresa de servicios petroleros</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Nuestro Propósito</h3>
-                        <p>Representamos la confianza, la innovación y el compromiso con el progreso en la industria. Nuestra marca representa una visión audaz de un futuro seguro y eficiente, impulsado por la excelencia y la responsabilidad.</p>
-                        
-                        <h3>Nuestra Misión</h3>
-                        <p>Impulsar el progreso en la industria petrolera nacional e internacional, comprometidos con la seguridad, la innovación y la responsabilidad, cumpliendo con estándares técnicos, legales y preservando el ambiente.</p>
-                        
-                        <h3>Nuestra Visión</h3>
-                        <p>Ser líderes reconocidos en la industria, destacados por nuestra excelencia, progreso y conocimiento en servicios petroleros. Impulsados por nuestro talentoso equipo altamente calificado.</p>
+            <div class="about-modern">
+                <!-- Main About Content -->
+                <div class="about-main">
+                    <div class="about-image">
+                        <img src="assets/images/team/trabajadores.jpg" alt="Equipo de trabajo Petrovenca en operaciones petroleras" loading="lazy">
                     </div>
-                </div>
-                <div class="about-image">
-                    <img src="assets/images/team/trabajadores.jpg" alt="Equipo de trabajo Petrovenca en operaciones petroleras" loading="lazy">
+                    <div class="about-content">
+                        <!-- Content Slider -->
+                        <div class="about-slider-container">
+                            <div class="slider-wrapper">
+                                <!-- Slide 1: Quiénes Somos -->
+                                <div class="slider-slide active">
+                                    <div class="about-text-content">
+                                        <h2>QUIÉNES SOMOS</h2>
+                                        <p>Petrovenca es una empresa comprometida con la excelencia en la ejecución de actividades de rehabilitación, perforación y servicios especializados a pozos, así como mantenimiento operacional en facilidades de superficie, levantamiento artificial, proyectos de ingeniería, alquiler de equipos y suministro de materiales para la industria petrolera nacional e internacional. Impulsados por un equipo de profesionales altamente calificados, que nos permite responder eficazmente en las actividades medulares de la industria petrolera y satisfacer los requerimientos de nuestros clientes.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 2: Propósito, Misión, Visión -->
+                                <div class="slider-slide">
+                                    <div class="about-text-content">
+                                        <div class="about-item">
+                                            <h3>Nuestro Propósito</h3>
+                                            <p>Proporcionar soluciones confiables y seguras para impulsar el crecimiento de la industria petrolera, manteniendo siempre el profesionalismo, la seguridad y la responsabilidad como pilares fundamentales de nuestro trabajo.</p>
+                                        </div>
+                                        
+                                        <div class="about-item">
+                                            <h3>Nuestra Misión</h3>
+                                            <p>Impulsar el progreso en la industria petrolera nacional e internacional, comprometidos con la seguridad, la innovación y la responsabilidad, cumpliendo con estándares técnicos, legales y preservando el ambiente.</p>
+                                        </div>
+                                        
+                                        <div class="about-item">
+                                            <h3>Nuestra Visión</h3>
+                                            <p>Ser líderes reconocidos en la industria, destacados por nuestra excelencia, progreso y conocimiento en servicios petroleros. Impulsados por nuestro talentoso equipo altamente calificado.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Slider Navigation -->
+                            <div class="slider-navigation">
+                                <button class="slider-btn prev-btn" onclick="changeAboutSlide(-1)">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <div class="slider-dots">
+                                    <span class="dot active" onclick="setAboutSlide(0)"></span>
+                                    <span class="dot" onclick="setAboutSlide(1)"></span>
+                                </div>
+                                <button class="slider-btn next-btn" onclick="changeAboutSlide(1)">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Statistics -->
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Años de Experiencia</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Proyectos Completados</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Compromiso Seguridad</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2>Experiencia en el Mercado</h2>
-                <p>Operaciones estratégicas en Venezuela y más allá</p>
-            </div>
-            
-            <!-- Statistics Cards -->
-            <div class="experience-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" data-target="15">15</h3>
-                        <p class="stat-label">Años de Experiencia</p>
-                    </div>
-                    <div class="stat-progress">
-                        <div class="progress-bar" data-width="100"></div>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" data-target="50">50</h3>
-                        <p class="stat-label">Proyectos Completados</p>
-                    </div>
-                    <div class="stat-progress">
-                        <div class="progress-bar" data-width="100"></div>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 class="stat-number" data-target="100">100</h3>
-                        <p class="stat-label">Compromiso con la Seguridad</p>
-                    </div>
-                    <div class="stat-progress">
-                        <div class="progress-bar" data-width="100"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="experience-content">
-                <div class="experience-info">
-                    <div class="experience-text">
-                        <h3>Nuestra Presencia en Venezuela</h3>
-                        <p>Con más de 15 años de experiencia, Petrovenca ha establecido una sólida presencia en el mercado venezolano, especialmente en la región de Maracaibo, corazón de la industria petrolera del país.</p>
-                        
-                        <div class="experience-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <h4>Maracaibo, Venezuela</h4>
-                                    <p>Centro principal de operaciones</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-industry"></i>
-                                <div>
-                                    <h4>Instalaciones de Vanguardia</h4>
-                                    <p>Patio operacional con tecnología de punta</p>
-                                </div>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-users"></i>
-                                <div>
-                                    <h4>Equipo Especializado</h4>
-                                    <p>Profesionales altamente capacitados</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="map-container">
-                    <div class="map-wrapper">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62787.5!2d-71.6124!3d10.6666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8998c5b8c5b8c5%3A0x1234567890abcdef!2sMaracaibo%2C%20Venezuela!5e0!3m2!1ses!2sve!4v1234567890"
-                            width="100%" 
-                            height="400" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                        <div class="map-overlay">
-                            <div class="map-info">
-                                <h3><i class="fas fa-map-marker-alt"></i> Maracaibo, Venezuela</h3>
-                                <p>Centro de operaciones de Petrovenca</p>
-                                <div class="map-stats">
-                                    <div class="stat">
-                                        <span class="number">15+</span>
-                                        <span class="label">Años</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="number">24/7</span>
-                                        <span class="label">Servicio</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Projects Section -->
     <section class="projects">
@@ -447,8 +381,8 @@
                 <a href="servicios.html" class="project-card project-card-3">
                         <img src="assets/images/hero/landscape pozo.jpg" alt="Instalaciones petroleras en Maracaibo" loading="lazy">
                     <div class="project-content">
-                        <h3>Instalaciones Maracaibo</h3>
-                        <p>Patio operacional de vanguardia con tecnología de punta para servicios integrales.</p>
+                        <h3>Nuestro centro de Excelencia</h3>
+                        <p>Instalaciones avanzadas con una ubicación estratégica en el sector petrolero nacional.</p>
                         <div class="project-link">
                             <span>Ver Servicios</span>
                             <i class="fas fa-arrow-right"></i>
@@ -464,7 +398,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Nuestro Centro de Excelencia</h2>
-                <p>Instalaciones de clase mundial en el corazón petrolero de Maracaibo</p>
+                <p>Instalaciones avanzadas con una ubicación estratégica en el sector petrolero nacional</p>
             </div>
             
             <!-- Stats Row -->
@@ -497,7 +431,7 @@
                         </div>
                         <div class="feature-content">
                             <h3>Seguridad Certificada</h3>
-                            <p>Protocolos de seguridad internacional con certificación ISO 45001 y estándares OSHA.</p>
+                            <p>Protocolos de seguridad basados en normas internacionales y nacionales ISO, OSHA, ANSI, Covenin..</p>
                         </div>
                     </div>
                     
@@ -626,8 +560,8 @@
                     <h4>Enlaces Rápidos</h4>
                     <ul>
                         <li><a href="index.html">Inicio</a></li>
-                        <li><a href="equipos.html">Equipos</a></li>
                         <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="blog.html">En Línea</a></li>
                         <li><a href="contacto.html">Contacto</a></li>
                     </ul>
                 </div>
@@ -645,6 +579,67 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- About Slider Script -->
+    <script>
+        let currentAboutSlide = 0;
+        const aboutSlides = document.querySelectorAll('.slider-slide');
+        const aboutDots = document.querySelectorAll('.dot');
+        const totalAboutSlides = aboutSlides.length;
+
+        function showAboutSlide(index) {
+            // Hide all slides
+            aboutSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Remove active class from all dots
+            aboutDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show current slide
+            if (aboutSlides[index]) {
+                aboutSlides[index].classList.add('active');
+            }
+            
+            // Activate current dot
+            if (aboutDots[index]) {
+                aboutDots[index].classList.add('active');
+            }
+        }
+
+        function changeAboutSlide(direction) {
+            currentAboutSlide += direction;
+            
+            if (currentAboutSlide >= totalAboutSlides) {
+                currentAboutSlide = 0;
+            } else if (currentAboutSlide < 0) {
+                currentAboutSlide = totalAboutSlides - 1;
+            }
+            
+            showAboutSlide(currentAboutSlide);
+        }
+
+        function setAboutSlide(index) {
+            currentAboutSlide = index;
+            showAboutSlide(currentAboutSlide);
+        }
+
+        // Auto-slide functionality (optional)
+        function autoSlideAbout() {
+            setInterval(() => {
+                changeAboutSlide(1);
+            }, 8000); // Change slide every 8 seconds
+        }
+
+        // Initialize slider when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            showAboutSlide(0);
+            // Uncomment the line below if you want auto-sliding
+            // autoSlideAbout();
+        });
+    </script>
     
     <!-- Universal mobile menu script -->
     <script>
