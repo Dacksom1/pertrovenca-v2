@@ -294,7 +294,7 @@ h1.visible, h2.visible, h3.visible, h4.visible, h5.visible, h6.visible {
 .logo-text {
     height: 30px;
     width: auto;
-    margin-left: 10px;
+    margin-left: 3px;
     transition: transform 0.3s ease;
 }
 
@@ -2630,6 +2630,20 @@ img {
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Service Card Wide - for cards with more content */
+.service-card-wide {
+    grid-column: 1 / -1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+/* Service Card Center - for centering specific cards */
+.service-card-center {
+    justify-self: center;
+    max-width: 400px;
 }
 
 .service-icon {
