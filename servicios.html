@@ -259,9 +259,9 @@
                 <p>Ofrecemos una gama completa de servicios petroleros diseñados para impulsar el progreso de la industria HACIA OPERACIONES  EFECTIVAS.</p>
             </div>
             
-            <div class="services-grid">
+            <div class="services-slider">
                 <!-- Perforación -->
-                <div class="service-card">
+                <div class="service-item">
                     <div class="service-icon">
                         <i class="fas fa-hammer"></i>
                     </div>
@@ -278,7 +278,7 @@
                 </div>
 
                 <!-- Mantenimiento -->
-                <div class="service-card">
+                <div class="service-item">
                     <div class="service-icon">
                         <i class="fas fa-tools"></i>
                     </div>
@@ -295,7 +295,7 @@
                 </div>
 
                 <!-- Consultoría -->
-                <div class="service-card">
+                <div class="service-item">
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -304,15 +304,13 @@
                     <ul class="service-features">
                         <li>Estudios de viabilidad técnica</li>
                         <li>Optimización de procesos operacionales</li>
-                        
                         <li>Análisis de riesgos operacionales</li>
-                        
                     </ul>
                     <a href="contacto.html" class="btn btn-primary">Solicitar Consultoría</a>
                 </div>
 
                 <!-- Logística -->
-                <div class="service-card service-card-center">
+                <div class="service-item">
                     <div class="service-icon">
                         <i class="fas fa-truck"></i>
                     </div>
@@ -329,7 +327,7 @@
                 </div>
 
                 <!-- Tecnología -->
-                <div class="service-card service-card-center">
+                <div class="service-item">
                     <div class="service-icon">
                         <i class="fas fa-microchip"></i>
                     </div>
@@ -346,7 +344,7 @@
                 </div>
 
                 <!-- Seguridad -->
-                <div class="service-card service-card-wide">
+                <div class="service-item">
                     <div class="service-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -355,7 +353,7 @@
                     <ul class="service-features">
                         <li>Gestión Integral para la Seguridad, la Salud y el Medio Ambiente</li>
                         <li>Promover la salud y el bienestar de los COLABORADORES a través de la implementación de medidas de seguridad y salud ocupacional.</li>
-                        <li>Identificación, Evaluación y control DE los riesgos asociados con las operaciones industriales. </li>
+                        <li>Identificación, Evaluación y control DE los riesgos asociados con las operaciones industriales.</li>
                         <li>Gestionar los residuos de manera segura y ambientalmente responsable.</li>
                         <li>Promover la conservación de recursos naturales y reducir el consumo de energía y agua.</li>
                         <li>Cumplir con las normas y regulaciones ambientales aplicables.</li>
@@ -363,6 +361,14 @@
                     </ul>
                     <a href="contacto.html" class="btn btn-primary">Más Información</a>
                 </div>
+                
+                <!-- Navigation Buttons -->
+                <button id="prev-service" class="slider-btn slider-btn-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="next-service" class="slider-btn slider-btn-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -746,6 +752,118 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Services Slider Script -->
+    <script>
+        // Services Slider Functionality with Zoom Effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.services-slider .service-item');
+            const nextBtn = document.getElementById('next-service');
+            const prevBtn = document.getElementById('prev-service');
+            
+            let active = 0;
+            
+            function loadShow() {
+                // Reset all items
+                items.forEach((item, index) => {
+                    item.style.transform = '';
+                    item.style.opacity = '';
+                    item.style.zIndex = '';
+                    item.style.left = '';
+                    item.style.top = '';
+                    item.style.width = '';
+                    item.style.height = '';
+                    item.style.padding = '';
+                });
+                
+                // Center card (active) - largest
+                items[active].style.transform = 'scale(1.2)';
+                items[active].style.opacity = '1';
+                items[active].style.zIndex = '10';
+                items[active].style.left = 'calc(50% - 180px)';
+                items[active].style.top = '20px';
+                items[active].style.width = '360px';
+                
+                // Special height for "Seguridad Industrial" (index 5)
+                if (active === 5) {
+                    items[active].style.height = '520px';
+                } else {
+                    items[active].style.height = '480px';
+                }
+                
+                items[active].style.padding = '1.5rem';
+                
+                // Previous card (left side)
+                if (active > 0) {
+                    const prevIndex = active - 1;
+                    items[prevIndex].style.transform = 'scale(0.8)';
+                    items[prevIndex].style.opacity = '0.7';
+                    items[prevIndex].style.zIndex = '5';
+                    items[prevIndex].style.left = 'calc(50% - 450px)';
+                    items[prevIndex].style.top = '40px';
+                    items[prevIndex].style.width = '300px';
+                    
+                    // Special height for "Seguridad Industrial" (index 5)
+                    if (prevIndex === 5) {
+                        items[prevIndex].style.height = '400px';
+                    } else {
+                        items[prevIndex].style.height = '400px';
+                    }
+                }
+                
+                // Next card (right side)
+                if (active < items.length - 1) {
+                    const nextIndex = active + 1;
+                    items[nextIndex].style.transform = 'scale(0.8)';
+                    items[nextIndex].style.opacity = '0.7';
+                    items[nextIndex].style.zIndex = '5';
+                    items[nextIndex].style.left = 'calc(50% + 90px)';
+                    items[nextIndex].style.top = '40px';
+                    items[nextIndex].style.width = '300px';
+                    
+                    // Special height for "Seguridad Industrial" (index 5)
+                    if (nextIndex === 5) {
+                        items[nextIndex].style.height = '400px';
+                    } else {
+                        items[nextIndex].style.height = '400px';
+                    }
+                }
+                
+                // Hide all other cards
+                items.forEach((item, index) => {
+                    if (index !== active && 
+                        index !== active - 1 && 
+                        index !== active + 1) {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        item.style.zIndex = '1';
+                    }
+                });
+            }
+            
+            loadShow();
+            
+            nextBtn.onclick = function() {
+                if (active < items.length - 1) {
+                    active++;
+                    loadShow();
+                }
+            };
+            
+            prevBtn.onclick = function() {
+                if (active > 0) {
+                    active--;
+                    loadShow();
+                }
+            };
+            
+            // Auto-play functionality (optional)
+            setInterval(function() {
+                active = active + 1 < items.length ? active + 1 : 0;
+                loadShow();
+            }, 5000); // Change slide every 5 seconds
+        });
+    </script>
     
     <!-- Universal mobile menu script -->
     <script>
