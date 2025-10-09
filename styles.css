@@ -2600,6 +2600,41 @@ img {
     line-height: 1.6;
 }
 
+/* Visibility Classes */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+    
+    .mobile-only {
+        display: block !important;
+    }
+    
+    /* Forzar que el slider de escritorio esté oculto en móvil */
+    .services-slider.desktop-only {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Asegurar que el slider móvil esté visible */
+    .mobile-slider.mobile-only {
+        display: block !important;
+        visibility: visible !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+}
+
 /* Services Page Styles - Slider */
 .services-slider {
     position: relative;
@@ -3519,7 +3554,7 @@ img {
 
 /* Services Overview */
 .services-overview {
-    padding: 100px 0;
+    padding: 40px 0;
     background: #F2F2F2;
 }
 
@@ -3791,10 +3826,18 @@ img {
         height: 460px !important;
         padding: 2rem !important;
         transform: scale(1) !important;
+        opacity: 1 !important;
+        z-index: 10 !important;
+        display: flex !important;
     }
     
     .service-item:nth-child(2),
     .service-item:nth-child(3) {
+        display: none !important;
+    }
+    
+    /* Hide all other cards on mobile */
+    .service-item:nth-child(n+4) {
         display: none !important;
     }
     
@@ -3879,6 +3922,150 @@ img {
         width: 95%;
         padding: 1.5rem;
     }
+}
+
+/* Mobile Slider Styles */
+.mobile-slider {
+    padding: 0.5rem;
+    max-width: 380px;
+    margin: 0 auto;
+    height: auto;
+    min-height: 480px;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-card-mobile {
+    background: #F2F2F2;
+    border-radius: 15px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card-mobile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #d31f45, #b01e3a);
+}
+
+.service-card-mobile .service-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    background: linear-gradient(135deg, #d31f45, #b01e3a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.8rem;
+    flex-shrink: 0;
+}
+
+.service-card-mobile .service-icon i {
+    font-size: 1.3rem;
+    color: #F2F2F2;
+}
+
+.service-card-mobile h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #1a1a1a;
+    flex-shrink: 0;
+}
+
+.service-card-mobile p {
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.service-card-mobile .service-features {
+    margin-bottom: 0.8rem;
+    flex-grow: 1;
+}
+
+.service-card-mobile .service-features li {
+    padding: 0.25rem 0;
+    color: #555;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    list-style: none;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-card-mobile .service-features li::before {
+    content: '✓';
+    color: #d31f45;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.service-card-mobile .btn {
+    background: linear-gradient(135deg, #d31f45, #b01e3a);
+    color: #F2F2F2;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.service-card-mobile .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(211, 31, 69, 0.3);
+}
+
+/* Swiper Navigation Styles - Hidden */
+.mobile-slider .swiper-button-next,
+.mobile-slider .swiper-button-prev {
+    display: none !important;
+}
+
+/* Swiper Pagination Styles */
+.mobile-slider .swiper-pagination {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    width: auto !important;
+    text-align: center !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.mobile-slider .swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+}
+
+.mobile-slider .swiper-pagination-bullet-active {
+    background: #d31f45;
+}
     
     .experience-content {
         grid-template-columns: 1fr;
