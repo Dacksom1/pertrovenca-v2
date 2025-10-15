@@ -259,6 +259,7 @@ h1.visible, h2.visible, h3.visible, h4.visible, h5.visible, h6.visible {
     transition: all 0.3s ease;
     transform: translateY(0);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
 }
 
 .navbar.scrolled {
@@ -273,7 +274,7 @@ h1.visible, h2.visible, h3.visible, h4.visible, h5.visible, h6.visible {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 100px;
 }
 
 .nav-logo {
@@ -282,7 +283,7 @@ h1.visible, h2.visible, h3.visible, h4.visible, h5.visible, h6.visible {
 }
 
 .nav-logo img {
-    height: 50px;
+    height: 100px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -2367,7 +2368,7 @@ img {
     justify-content: center;
     text-align: center;
     color: #F2F2F2;
-    margin-top: 70px;
+    margin-top: 130px;
     overflow: hidden;
 }
 
@@ -2832,6 +2833,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 130px;
 }
 
 .contact-hero .hero-content {
@@ -4160,6 +4162,7 @@ img {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    margin-top: 130px;
 }
 
 .blog-hero::before {
