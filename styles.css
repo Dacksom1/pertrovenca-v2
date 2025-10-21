@@ -3576,6 +3576,13 @@ img {
     margin-bottom: 1rem;
 }
 
+.industry-item svg {
+    width: 3rem;
+    height: 3rem;
+    color: #FF3C4D;
+    margin-bottom: 1rem;
+}
+
 .industry-item h3 {
     font-size: 1.3rem;
     font-weight: 600;
