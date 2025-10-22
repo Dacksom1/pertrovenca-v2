@@ -605,7 +605,7 @@ const images = [
     'assets/images/projects/pozo 2.jpg',
     'assets/images/projects/pozo 3.jpg',
     'assets/images/projects/pozo 4.jpg',
-    'assets/images/projects/pozo y trabajadores.jpg',
+    'assets/images/projects/centro-de-excelencia.jpg',
     'assets/images/equipment/flota 2.jpg'
 ];
 
