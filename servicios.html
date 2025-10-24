@@ -263,13 +263,21 @@
             
             <!-- Desktop Grid Slider -->
             <div class="services-grid-slider desktop-only">
+                <!-- Slider Controls -->
+                <button class="slider-btn prev-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn next-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
                 <div class="services-grid-container" id="services-grid">
                     <!-- Perforación -->
                     <div class="service-grid-item">
                         <div class="service-icon">
                             <i class="fas fa-hammer"></i>
                         </div>
-                        <h3>Perforación de Pozos</h3>
+                        <h3>Operaciones de subsuelo</h3>
                         <p>Servicios petroleros con tecnología de vanguardia y equipos especializados para operaciones seguras y eficientes.</p>
                         <ul class="service-features">
                             <li>Perforación direccional y horizontal</li>
@@ -301,7 +309,7 @@
                         <div class="service-icon">
                             <i class="fas fa-truck"></i>
                         </div>
-                        <h3>Logística y Transporte</h3>
+                        <h3>Logística Operacional</h3>
                         <p>Servicios logísticos para el transporte seguro de personal, equipos y materiales petroleros.</p>
                         <ul class="service-features">
                             <li>Transporte de personal especializado</li>
@@ -521,7 +529,7 @@
                 <!-- Equipos de Mantenimiento -->
                 <div class="equipment-card">
                     <div class="equipment-image">
-                        <img src="assets/images/equipment/flota 2.jpg" alt="Equipos de mantenimiento petrolero" loading="lazy">
+                        <img src="assets/images/equipment/petrovenca fotos del video_ 03_01679 (1).jpg" alt="Equipos de mantenimiento petrolero" loading="lazy">
                         <div class="equipment-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
@@ -845,6 +853,109 @@
         
         window.addEventListener('resize', function() {
             initMobileSwiper();
+        });
+    </script>
+    
+    <!--=============== DESKTOP SLIDER JS ===============-->
+    <script>
+        // Desktop Services Slider
+        let currentSlide = 0;
+        const totalCards = 4;
+        const cardWidth = 400; // Width of each card
+        const gap = 30; // Gap between cards
+        const slideWidth = cardWidth + gap; // Total width per slide
+        const container = document.getElementById('services-grid');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        // Calculate visible width and maximum slides
+        function calculateMaxSlides() {
+            const sliderContainer = document.querySelector('.services-grid-slider');
+            const containerWidth = sliderContainer.offsetWidth;
+            const leftPadding = 100; // Left padding for prev button
+            const rightPadding = 60; // Right padding for next button
+            const visibleWidth = containerWidth - leftPadding - rightPadding;
+            
+            // Calculate how many cards fit in visible area
+            const cardsPerView = Math.floor(visibleWidth / slideWidth);
+            
+            // Calculate max translateX to align last card with right button
+            const totalContentWidth = totalCards * cardWidth + (totalCards - 1) * gap;
+            const maxTranslateX = totalContentWidth - visibleWidth;
+            
+            return Math.max(0, Math.ceil(maxTranslateX / slideWidth));
+        }
+        
+        let maxSlides = calculateMaxSlides();
+        
+        function updateSlider() {
+            // Recalculate max slides on resize
+            maxSlides = calculateMaxSlides();
+            
+            // Limit currentSlide to valid range
+            currentSlide = Math.max(0, Math.min(currentSlide, maxSlides));
+            
+            // Calculate translateX based on current slide
+            let translateX;
+            if (currentSlide === 0) {
+                translateX = 0; // Show first cards aligned with left button
+            } else if (currentSlide === maxSlides) {
+                // Calculate exact translateX to align last card with right button
+                const sliderContainer = document.querySelector('.services-grid-slider');
+                const containerWidth = sliderContainer.offsetWidth;
+                const leftPadding = 100;
+                const rightPadding = 60;
+                const visibleWidth = containerWidth - leftPadding - rightPadding;
+                const totalContentWidth = totalCards * cardWidth + (totalCards - 1) * gap;
+                translateX = -(totalContentWidth - visibleWidth);
+            } else {
+                translateX = -currentSlide * slideWidth;
+            }
+            
+            container.style.transform = `translateX(${translateX}px)`;
+            
+            // Update button states
+            if (prevBtn) prevBtn.disabled = currentSlide === 0;
+            if (nextBtn) nextBtn.disabled = currentSlide >= maxSlides;
+            
+            console.log('Current slide:', currentSlide, 'Max slides:', maxSlides, 'TranslateX:', translateX);
+        }
+        
+        function nextSlide() {
+            if (currentSlide < maxSlides) {
+                currentSlide++;
+                updateSlider();
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+            }
+        }
+        
+        
+        // Event listeners
+        if (nextBtn && prevBtn) {
+            console.log('Slider buttons found, adding event listeners');
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+        } else {
+            console.log('Slider buttons not found!');
+            console.log('nextBtn:', nextBtn);
+            console.log('prevBtn:', prevBtn);
+        }
+        
+        // Initialize slider
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initializing slider...');
+            updateSlider();
+        });
+        
+        // Recalculate on window resize
+        window.addEventListener('resize', function() {
+            updateSlider();
         });
     </script>
 </body>

@@ -664,11 +664,6 @@ h1.visible, h2.visible, h3.visible, h4.visible, h5.visible, h6.visible {
     transform: scale(1.1);
 }
 
-.slider-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
 
 .slider-btn:disabled:hover {
     background: transparent;
@@ -2639,22 +2634,22 @@ img {
 /* =============== NEW GRID SLIDER =============== */
 .services-grid-slider {
     position: relative;
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 60px 0 100px;
     overflow: hidden;
 }
 
 .services-grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for 6 items */
-    grid-template-rows: repeat(2, 1fr);
+    display: flex;
     gap: 30px;
-    width: 100%; /* Fixed width, no sliding */
-    overflow: visible;
+    transition: transform 0.5s ease;
+    width: calc(4 * 400px + 3 * 30px); /* Exact width for 4 cards + 3 gaps */
+    max-width: calc(4 * 400px + 3 * 30px); /* Exact width for 4 cards + 3 gaps */
 }
 
 .service-grid-item {
+    flex: 0 0 400px; /* Fixed width for each card */
     background: #F2F2F2;
     border-radius: 20px;
     padding: 2.5rem;
@@ -2668,6 +2663,7 @@ img {
     flex-direction: column;
     justify-content: space-between;
 }
+
 
 .service-grid-item::before {
     content: '';
@@ -2804,37 +2800,58 @@ img {
     font-size: 0.85rem;
 }
 
-/* =============== SLIDER CONTROLS =============== */
-.slider-controls {
-    display: none; /* Hide controls since we're not using a slider */
+/* =============== SERVICES SLIDER CONTROLS =============== */
+.services-grid-slider .slider-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: #FF3C4D !important;
+    color: white !important;
+    border: none !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    z-index: 100 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.5rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 6px 20px rgba(255, 60, 77, 0.5) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-.slider-btn {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #FF3C4D, #FF3C4D);
-    border: none;
-    border-radius: 50%;
-    color: #F2F2F2;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 20px rgba(255, 60, 77, 0.3);
+.services-grid-slider .slider-btn:hover {
+    background: #d31f45 !important;
+    transform: translateY(-50%) scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(255, 60, 77, 0.4) !important;
 }
 
-.slider-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(255, 60, 77, 0.4);
+.services-grid-slider .prev-btn {
+    left: 15px !important;
 }
 
-.slider-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
+.services-grid-slider .next-btn {
+    right: 5px !important;
 }
+
+.services-grid-slider .slider-btn:disabled {
+    background: #ccc !important;
+    cursor: not-allowed !important;
+    transform: translateY(-50%) !important;
+    box-shadow: none !important;
+}
+
+.services-grid-slider .slider-btn:disabled:hover {
+    background: #ccc !important;
+    transform: translateY(-50%) !important;
+    box-shadow: none !important;
+}
+
+
+
 
 .slider-dots {
     display: flex;
@@ -3604,7 +3621,7 @@ img {
 
 /* Services Overview */
 .services-overview {
-    padding: 40px 0;
+    padding: 60px 0;
     background: #F2F2F2;
 }
 
@@ -4170,6 +4187,17 @@ img {
 
 /* Tablet Styles */
 @media (max-width: 1024px) and (min-width: 769px) {
+    .services-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .service-grid-item {
+        height: 550px;
+        padding: 1.8rem;
+    }
+    
     .experience-stats {
         gap: 1.5rem;
         margin: 2rem 0 2.5rem 0;
