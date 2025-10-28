@@ -11,6 +11,10 @@
     <meta name="keywords" content="contacto Petrovenca, cotizaciones petroleras, carreras oil & gas, empleos Venezuela, Maracaibo, servicios petroleros">
     <meta name="author" content="Petrovenca">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logos/logo petrovenca.png">
+    <link rel="apple-touch-icon" href="assets/logos/logo petrovenca.png">
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -82,7 +86,7 @@
             
             .nav-link:hover {
                 background: rgba(0, 0, 0, 0.05) !important;
-                color: #d31f45 !important;
+                color: #D50000 !important;
             }
             
             /* Action buttons container - removed extra spacing */
@@ -132,12 +136,12 @@
             }
             
             .primary-btn {
-                background: #d31f45 !important;
+                background: #D50000 !important;
                 color: white !important;
             }
             
             .primary-btn:hover {
-                background: #b01a3a !important;
+                background: #A00D25 !important;
                 transform: translateY(-1px) !important;
                 box-shadow: 0 4px 12px rgba(211, 31, 69, 0.3) !important;
             }
@@ -277,29 +281,11 @@
             <div class="contact-methods">
                 <div class="contact-method">
                     <div class="method-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <h3>Llamada Directa</h3>
-                    <p>Habla directamente con nuestro equipo de expertos</p>
-                    <a href="tel:+582612345678" class="method-link">+58 261-234-5678</a>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="method-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3>Correo Electrónico</h3>
                     <p>Envíanos un mensaje detallado sobre tu proyecto</p>
                     <a href="mailto:info@petrovenca.com" class="method-link">info@petrovenca.com</a>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="method-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>Visita Nuestras Oficinas</h3>
-                    <p>Conoce nuestras instalaciones en Maracaibo</p>
-                    <a href="#location" class="method-link">Ver Ubicación</a>
                 </div>
             </div>
         </div>
@@ -366,60 +352,6 @@
                         </button>
                     </form>
                 </div>
-                
-                <!-- Contact Information -->
-                <div class="contact-info-section">
-                    <div class="info-header">
-                        <h2>Información de Contacto</h2>
-                        <p>Múltiples formas de conectarte con nosotros</p>
-                    </div>
-                    
-                    <div class="info-cards">
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3>Ubicación Principal</h3>
-                                <p>Maracaibo, Estado Zulia<br>Venezuela</p>
-                                <span class="card-subtitle">Centro de operaciones</span>
-                            </div>
-                        </div>
-                        
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3>Teléfonos</h3>
-                                <p>+58 261-234-5678<br>+58 261-234-5679</p>
-                                <span class="card-subtitle">Lunes a Viernes 8AM-6PM</span>
-                            </div>
-                        </div>
-                        
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3>Correos</h3>
-                                <p>info@petrovenca.com<br>ventas@petrovenca.com</p>
-                                <span class="card-subtitle">Respuesta en 24 horas</span>
-                            </div>
-                        </div>
-                        
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="fas fa-headset"></i>
-                            </div>
-                            <div class="card-content">
-                                <h3>Emergencias</h3>
-                                <p>+58 261-234-5680<br>Servicio 24/7</p>
-                                <span class="card-subtitle">Soporte técnico</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -458,9 +390,7 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contacto</h4>
-                    <p>Maracaibo, Venezuela</p>
                     <p>Email: info@petrovenca.com</p>
-                    <p>Tel: +58 261-XXX-XXXX</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -536,10 +466,43 @@
         });
     </script>
     <script>
-        // Form submissions
+        // Contact Form Email Builder
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Build email subject
+            const subject = `Solicitud de Cotización - ${service || 'Servicio'}`;
+            
+            // Build email body
+            let emailBody = `Hola Petrovenca,\n\n`;
+            emailBody += `Me comunico para solicitar información sobre sus servicios.\n\n`;
+            emailBody += `Información de Contacto:\n`;
+            emailBody += `Nombre: ${name}\n`;
+            emailBody += `Correo: ${email}\n`;
+            if (phone) emailBody += `Teléfono: ${phone}\n`;
+            if (company) emailBody += `Empresa: ${company}\n`;
+            emailBody += `Servicio de Interés: ${service || 'No especificado'}\n\n`;
+            emailBody += `Mensaje:\n${message}\n\n`;
+            emailBody += `Gracias por su atención.\n\n`;
+            emailBody += `Saludos,\n${name}`;
+            
+            // Encode for mailto
+            const encodedSubject = encodeURIComponent(subject);
+            const encodedBody = encodeURIComponent(emailBody);
+            
+            // Create mailto link
+            const mailtoLink = `mailto:info@petrovenca.net?subject=${encodedSubject}&body=${encodedBody}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
         });
     </script>
 </body>

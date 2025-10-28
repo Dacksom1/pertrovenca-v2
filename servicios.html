@@ -11,6 +11,10 @@
     <meta name="keywords" content="servicios petroleros Venezuela, perforación, mantenimiento petrolero, consultoría oil & gas, soluciones petroleras, Venezuela">
     <meta name="author" content="Petrovenca">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logos/logo petrovenca.png">
+    <link rel="apple-touch-icon" href="assets/logos/logo petrovenca.png">
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -85,7 +89,7 @@
             
             .nav-link:hover {
                 background: rgba(0, 0, 0, 0.05) !important;
-                color: #d31f45 !important;
+                color: #D50000 !important;
             }
             
             /* Action buttons container - removed extra spacing */
@@ -135,12 +139,12 @@
             }
             
             .primary-btn {
-                background: #d31f45 !important;
+                background: #D50000 !important;
                 color: white !important;
             }
             
             .primary-btn:hover {
-                background: #b01a3a !important;
+                background: #A00D25 !important;
                 transform: translateY(-1px) !important;
                 box-shadow: 0 4px 12px rgba(211, 31, 69, 0.3) !important;
             }
@@ -261,16 +265,8 @@
                 <p>Ofrecemos una gama completa de servicios petroleros diseñados para impulsar el progreso de la industria HACIA OPERACIONES  EFECTIVAS.</p>
             </div>
             
-            <!-- Desktop Grid Slider -->
+            <!-- Desktop Grid -->
             <div class="services-grid-slider desktop-only">
-                <!-- Slider Controls -->
-                <button class="slider-btn prev-btn" id="prevBtn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="slider-btn next-btn" id="nextBtn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
                 <div class="services-grid-container" id="services-grid">
                     <!-- Perforación -->
                     <div class="service-grid-item">
@@ -462,15 +458,11 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="assets/images/projects/pozo.jpg" alt="Equipo de perforación petrolera" loading="lazy">
-                        <div class="equipment-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
                     </div>
                     <div class="equipment-content">
                         <h3>Operaciones de subsuelo</h3>
                         <p class="equipment-description">Rigs de perforación de última generación con tecnología avanzada para operaciones seguras y eficientes.</p>
                         <div class="equipment-features">
-                            <span class="feature-tag">Tecnología Avanzada</span>
                             <span class="feature-tag">Alta Eficiencia</span>
                             <span class="feature-tag">Mantenimiento Preventivo</span>
                         </div>
@@ -496,9 +488,6 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="assets/images/equipment/flota.jpg" alt="Flota de vehículos especializados" loading="lazy">
-                        <div class="equipment-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
                     </div>
                     <div class="equipment-content">
                         <h3>Flota Vehicular</h3>
@@ -530,9 +519,6 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="assets/images/equipment/petrovenca fotos del video_ 03_01679 (1).jpg" alt="Equipos de mantenimiento petrolero" loading="lazy">
-                        <div class="equipment-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
                     </div>
                     <div class="equipment-content">
                         <h3>Mantenimiento Operacional</h3>
@@ -568,9 +554,6 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="assets/images/team/trabajadores.jpg" alt="Equipos de seguridad petrolera" loading="lazy">
-                        <div class="equipment-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
                     </div>
                     <div class="equipment-content">
                         <h3>Consultoría Operacional </h3>
@@ -723,9 +706,7 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contacto</h4>
-                    <p>Maracaibo, Venezuela</p>
                     <p>Email: info@petrovenca.com</p>
-                    <p>Tel: +58 261-XXX-XXXX</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -856,107 +837,5 @@
         });
     </script>
     
-    <!--=============== DESKTOP SLIDER JS ===============-->
-    <script>
-        // Desktop Services Slider
-        let currentSlide = 0;
-        const totalCards = 4;
-        const cardWidth = 400; // Width of each card
-        const gap = 30; // Gap between cards
-        const slideWidth = cardWidth + gap; // Total width per slide
-        const container = document.getElementById('services-grid');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        
-        // Calculate visible width and maximum slides
-        function calculateMaxSlides() {
-            const sliderContainer = document.querySelector('.services-grid-slider');
-            const containerWidth = sliderContainer.offsetWidth;
-            const leftPadding = 100; // Left padding for prev button
-            const rightPadding = 60; // Right padding for next button
-            const visibleWidth = containerWidth - leftPadding - rightPadding;
-            
-            // Calculate how many cards fit in visible area
-            const cardsPerView = Math.floor(visibleWidth / slideWidth);
-            
-            // Calculate max translateX to align last card with right button
-            const totalContentWidth = totalCards * cardWidth + (totalCards - 1) * gap;
-            const maxTranslateX = totalContentWidth - visibleWidth;
-            
-            return Math.max(0, Math.ceil(maxTranslateX / slideWidth));
-        }
-        
-        let maxSlides = calculateMaxSlides();
-        
-        function updateSlider() {
-            // Recalculate max slides on resize
-            maxSlides = calculateMaxSlides();
-            
-            // Limit currentSlide to valid range
-            currentSlide = Math.max(0, Math.min(currentSlide, maxSlides));
-            
-            // Calculate translateX based on current slide
-            let translateX;
-            if (currentSlide === 0) {
-                translateX = 0; // Show first cards aligned with left button
-            } else if (currentSlide === maxSlides) {
-                // Calculate exact translateX to align last card with right button
-                const sliderContainer = document.querySelector('.services-grid-slider');
-                const containerWidth = sliderContainer.offsetWidth;
-                const leftPadding = 100;
-                const rightPadding = 60;
-                const visibleWidth = containerWidth - leftPadding - rightPadding;
-                const totalContentWidth = totalCards * cardWidth + (totalCards - 1) * gap;
-                translateX = -(totalContentWidth - visibleWidth);
-            } else {
-                translateX = -currentSlide * slideWidth;
-            }
-            
-            container.style.transform = `translateX(${translateX}px)`;
-            
-            // Update button states
-            if (prevBtn) prevBtn.disabled = currentSlide === 0;
-            if (nextBtn) nextBtn.disabled = currentSlide >= maxSlides;
-            
-            console.log('Current slide:', currentSlide, 'Max slides:', maxSlides, 'TranslateX:', translateX);
-        }
-        
-        function nextSlide() {
-            if (currentSlide < maxSlides) {
-                currentSlide++;
-                updateSlider();
-            }
-        }
-        
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateSlider();
-            }
-        }
-        
-        
-        // Event listeners
-        if (nextBtn && prevBtn) {
-            console.log('Slider buttons found, adding event listeners');
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
-        } else {
-            console.log('Slider buttons not found!');
-            console.log('nextBtn:', nextBtn);
-            console.log('prevBtn:', prevBtn);
-        }
-        
-        // Initialize slider
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Initializing slider...');
-            updateSlider();
-        });
-        
-        // Recalculate on window resize
-        window.addEventListener('resize', function() {
-            updateSlider();
-        });
-    </script>
 </body>
 </html>
