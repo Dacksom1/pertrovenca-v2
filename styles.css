@@ -2685,7 +2685,8 @@ img {
 }
 
 .service-grid-item.operaciones-card .service-features li {
-    font-size: 0.72rem;
+    font-size: 0.65rem;
+    line-height: 1.4;
 }
 
 .service-grid-item .btn {
